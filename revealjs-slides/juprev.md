@@ -13,11 +13,11 @@
 
 
 ## What we will specifically do:
-- Write the content in jupyter
-- Use jupyter nbconvert to convert it to markdown
-- Use a barebones template for reveal
-- Externally source the markdown and all resources
-- Serve over github
+- Write the content in jupyter <!-- .element: class="fragment" data-fragment-index="1" -->
+- Use jupyter nbconvert to convert it to markdown <!-- .element: class="fragment" data-fragment-index="2" -->
+- Use a barebones template for reveal <!-- .element: class="fragment" data-fragment-index="3" -->
+- Externally source the markdown and all resources <!-- .element: class="fragment" data-fragment-index="4" -->
+- Serve over github <!-- .element: class="fragment" data-fragment-index="5" -->
 
 ---
 <!-- .slide: data-background="#ff0000" -->
