@@ -15,7 +15,15 @@
 		</div>
 		<script src="reveal-js.master/js/reveal.js"></script>
 		<script>
-			Reveal.initialize();
+			Reveal.initialize(
+			  {
+				dependencies: [
+	{ src: 'reveal.js-master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	{ src: 'reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+		]			
+					}
+			
+			);
 		</script>
 	</body>
 </html>
