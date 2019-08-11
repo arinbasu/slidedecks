@@ -22,9 +22,10 @@
 		<script>
 			Reveal.initialize({
 				dependencies: [
-					{src: 'reveal.js-master/plugin/marked.js'},
-				        {src: 'reveal.js-master/plugin/markdown.js'}
-					]});
+				 { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+		]			
+					});
 		</script>
 	</body>
 </html>
