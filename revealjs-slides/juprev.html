@@ -5,25 +5,24 @@
 		<link rel="stylesheet" href="reveal.js-master/css/theme/white.css">
 	</head>
 	<body>
-		<div class="reveal">
-			<div class="slides">
+	<div class="reveal">
+	  <div class="slides">
+	    <section data-markdown="juprev.md"
+		     data-separator="^\n---\n$"
+                     data-separator-vertical="^\n--\n$">
+            </section>
 				
-				<section data-markdown="juprev.md"
-					 data-separator="^\n---\n$"
-                                data-separator-vertical="^\n--\n$">
-                               </section>
-				
-		      </div>
-		</div>
-		<script src="reveal-js.master/js/reveal.js"></script>
-		<script>
-			Reveal.initialize(
+           </div>
+	</div>
+	<script src="reveal-js.master/js/reveal.js"></script>
+	<script>
+	Reveal.initialize(
 			  {
-				dependencies: [
+			   dependencies: [
 	{ src: 'reveal.js-master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 	{ src: 'reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
 		]			
-					}
+			 }
 			
 			);
 		</script>
