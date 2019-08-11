@@ -13,5 +13,6 @@
 ---
 
 ## You can append an external markdown file
-> - this
-> - that
+
+- this <!-- .element: class="fragment" data-fragment-index="2" -->
+- that <!-- .element: class="fragment" data-fragment-index="1" -->
