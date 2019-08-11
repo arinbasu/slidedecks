@@ -34,7 +34,13 @@
 		
 		
 		<script>
-			Reveal.initialize()
+			Reveal.initialize({
+				dependencies: [{ 
+					src: 'reveal.js-master/plugin/marked.js',
+					src: 'reveal.js-master/plugin/markdown.js'
+				}
+					
+				]});
 		</script>
 	</body>
 </html>
