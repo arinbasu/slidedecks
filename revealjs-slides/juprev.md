@@ -20,7 +20,8 @@
 - Serve over github
 
 ---
-# Create the boilerplate first { .slide: data-background="#ff0000"}
+<!-- .slide: data-background="#ff0000" -->
+# Create the boilerplate first 
 
 ---
 
