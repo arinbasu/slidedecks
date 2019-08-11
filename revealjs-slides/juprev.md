@@ -24,12 +24,6 @@
 
 ---
 
-```python
-%%writefile extmd.html
-```
-
----
-
 ```html
 <html>
 	<head>
