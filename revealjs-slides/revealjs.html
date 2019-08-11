@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>How to add interactivity to revealjs slides from jupyter notebooks</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js-master/css/reset.css">
+  <link rel="stylesheet" href="reveal.js-master/css/reveal.css">
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js-master/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-master/css/print/pdf.css' : 'reveal.js-master/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js-master/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">How to add interactivity to revealjs slides from jupyter notebooks</h1>
+</section>
+
+<section id="preparation" class="slide level2">
+<h2>Preparation</h2>
+<ul>
+<li>First clone or wget the reveal.js-master in a folder</li>
+<li>Make sure that you have git and pandoc installed</li>
+<li>Create a github repository (let’s say ‘foo’)</li>
+<li>Create a gh-pages branch where you will push the changes</li>
+<li>Your slide deck will be viewable at</li>
+<li><code>https://username.github.io/foo/slides.html</code></li>
+</ul>
+</section>
+<section id="create-the-slides-in-jupyter-notebooks" class="slide level2">
+<h2>Create the slides in jupyter notebooks</h2>
+<ul>
+<li>Write the content of the slide as a markdown block</li>
+<li>Use the conventions of images, tables, and lists to style your markdown block</li>
+<li>Your analyses will produce tables and images</li>
+<li>You can add those tables and images directly to the markdown block</li>
+</ul>
+</section>
+<section id="using-pandoc-to-produce-reveal.js-slides" class="slide level2">
+<h2>Using Pandoc to produce reveal.js slides</h2>
+<ul>
+<li>This is most intuitive unless you want to directly add markdown blocks</li>
+<li>First convert the jupyter notebook to a markdown file using <code>jupyter nbconvert</code></li>
+<li>Then use pandoc to convert the markdown file to html using reveal.js</li>
+</ul>
+</section>
+<section id="code-for-jupyter-nbconvert" class="slide level2">
+<h2>Code for jupyter nbconvert</h2>
+<pre><code>jupyter nbconvert --to markdown foo.ipynb</code></pre>
+</section>
+<section id="code-for-converting-markdown-to-html-using-pandoc" class="slide level2">
+<h2>Code for converting markdown to html using pandoc</h2>
+<pre><code>pandoc -t revealjs -s -o myslides.html myslides.md 
+        -V revealjs-url=&quot;reveal.js-master&quot;
+        -V theme=$theme -V transition=cube</code></pre>
+</section>
+<section id="link-to-learn-more-about-this" class="slide level2">
+<h2>Link to learn more about this</h2>
+<p><a href="https://github.com/jgm/pandoc/wiki/Using-pandoc-to-produce-reveal.js-slides">Pandoc link</a></p>
+</section>
+<section id="lets-add-some-interactivity-to-the-slides" class="slide level2">
+<h2>Let’s add some interactivity to the slides</h2>
+<ul>
+<li>How to step through the slides</li>
+<li>How to add an iframe</li>
+<li>How to add a background image for a slide</li>
+</ul>
+</section>
+<section><section id="pandoc-slide-deck-creation-rules" class="title-slide slide level1"><h1>Pandoc slide deck creation rules</h1></section><section id="slide-level" class="slide level2">
+<h2>Slide level</h2>
+<ul>
+<li>Highest heading level followed by text</li>
+<li>At the slide level: new slide</li>
+<li>Below the slide level: headings within a slide</li>
+<li>Above the slide level: title slides</li>
+<li>Above the slide level: title slide for a section</li>
+<li>Do not produce more than two levels (1 and 2)</li>
+</ul>
+</section><section id="start-a-new-slide" class="slide level2">
+<h2>Start a new slide</h2>
+<ul>
+<li>Horizontal rule</li>
+<li>A heading at slide level</li>
+</ul>
+</section><section id="how-to-produce-incremental-lists" class="slide level2">
+<h2>How to produce incremental lists</h2>
+<ul>
+<li>Use the i option</li>
+<li>Use the &gt; sign</li>
+<li>Specify that it is incremental</li>
+</ul>
+</section><section id="this-is-an-incremental-list" class="slide level2">
+<h2>This is an incremental list</h2>
+<div>
+<ul>
+<li class="fragment">This is the first element</li>
+<li class="fragment">The second element will wait for a mouse click</li>
+</ul>
+</div>
+</section><section id="this-is-another-incremental-list" class="slide level2">
+<h2>This is another incremental list</h2>
+<ul>
+<li class="fragment">This is the first element</li>
+<li class="fragment">This is the second element that waited for mouse click</li>
+</ul>
+</section><section id="show-two-columns-in-a-slide" class="slide level2">
+<h2>Show two columns in a slide</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<blockquote>
+<p>Left column text</p>
+</blockquote>
+</div><div class="column" data-with="50%">
+<blockquote>
+<p>Right column text</p>
+</blockquote>
+</div>
+</div>
+</section><section id="background-image" class="slide level2" data-baclground-image="photo.jpg">
+<h2>Background image</h2>
+</section><section id="page-that-contains-rules-for-revealjs" class="slide level2">
+<h2>Page that contains rules for revealjs</h2>
+<p><a href="https://github.com/hakimel/reveal.js#configuration">revealjs</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js-master/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js-master/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js-master/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
