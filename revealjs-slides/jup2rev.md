@@ -1,11 +1,12 @@
 
 # Jupyter to reveal through markdown
-
+---
 ## What we will do:
 - Earlier we saw we can convert Jupyter notebooks to revealjs
 - We used Pandoc to convert the markdown
 - This time we will directly input the markdown
 - Host it on github
+---
 
 ## What we will specifically do:
 > - Write the content in jupyter
@@ -14,8 +15,9 @@
 > - Externally source the markdown and all resources
 > - Serve over github
 
+---
 # Create the boilerplate first
-
+---
 
 ```python
 %%writefile extmd.html
@@ -46,9 +48,6 @@
 ```
 
     Writing extmd.html
+---
 
 
-
-```python
-
-```
