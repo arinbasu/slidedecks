@@ -26,6 +26,7 @@
 
 ```python
 %%writefile extmd.html
+```
 
 ---
 
